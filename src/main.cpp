@@ -11,7 +11,7 @@ auto qexp(double lambda, double p ){
 	assert(p >= 0);
 	assert(p <= 0);
 
-	return - math::log(1-p) / lambda;
+	return - std::log(1-p) / lambda;
 }
 
 int main(int argc, char *  argv[])
