@@ -3,6 +3,7 @@
 #include <vector>
 #include <cmath>
 #include <uxhw.h>
+#include <cassert>
 
 int
 main(int argc, char *  argv[])
