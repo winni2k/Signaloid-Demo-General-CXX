@@ -9,7 +9,7 @@
 auto qexp(double lambda, double p ){
 	assert(lambda > 0);
 	assert(p >= 0);
-	assert(p <= 0);
+	assert(p <= 1);
 
 	return - std::log(1-p) / lambda;
 }
