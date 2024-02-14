@@ -14,6 +14,11 @@ auto qexp(double lambda, double p ){
 	return - std::log(1-p) / lambda;
 }
 
+// see https://en.wikipedia.org/wiki/Logistic_function
+auto logistic(double L; double k, double x, double x0){
+	return L / (1 + std::exp(-k*(x - x0)));
+}
+
 int main(int argc, char *  argv[])
 {
 	std::vector<double> vec {
@@ -28,7 +33,7 @@ int main(int argc, char *  argv[])
 
 	double exponential_dist = qexp(1, vec[0]);
 
-	double p_lt_3 = exponential_dist * 2;
+	double p_lt_3 = logistic(1, 1, exponential_dist, 3);
 
 	std::cout << exponential_dist << std::endl;
 	std::cout << p_lt_3 << std::endl;
