@@ -23,6 +23,7 @@ int main(int argc, char *  argv[])
 {
 	std::vector<double> vec {
 		UxHwDoubleUniformDist(0.0, 1.0),
+		UxHwDoubleUniformDist(1.0, 3.0),
 	};
 
 	std::cout << "Initial distributions:" << std::endl;
@@ -31,13 +32,14 @@ int main(int argc, char *  argv[])
 		std::cout << dist << std::endl;
 	}
 
-	double exponential_dist = qexp(1, vec[0]);
+	double expected_time_to_wait_on_an_interview = vec[1]
+	double exponential_dist = qexp(expected_time_to_wait_on_an_interview, vec[0]);
 
-	double p_gt_3 = logistic(1, 10, exponential_dist, 3);
+	double chance_i_will_wait_longer_than_3_days_for_an_interview = logistic(1, 10, exponential_dist, 3);
 	double logistic_result = logistic(1, 10, vec[0], 0.5);
 
 	std::cout << exponential_dist << std::endl;
-	std::cout << p_gt_3 << std::endl;
+	std::cout << chance_i_will_wait_longer_than_3_days_for_an_interview << std::endl;
 	std::cout << logistic_result << std::endl;
 
 #ifdef DEBUG
