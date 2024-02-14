@@ -5,8 +5,16 @@
 #include <uxhw.h>
 #include <cassert>
 
-int
-main(int argc, char *  argv[])
+
+auto qexp(double lambda, double p ){
+	assert(lambda > 0);
+	assert(p >= 0);
+	assert(p <= 0);
+
+	return - math::log(1-p) / lambda;
+}
+
+int main(int argc, char *  argv[])
 {
 	std::vector<double> vec {
 		UxHwDoubleUniformDist(0.0, 1.0),
@@ -27,13 +35,5 @@ main(int argc, char *  argv[])
 #endif
 
 	return 0;
-}
-
-auto qexp(double lambda, double p ){
-	assert(lambda > 0);
-	assert(p >= 0);
-	assert(p <= 0);
-
-	return - math::log(1-p) / lambda;
 }
 
