@@ -28,7 +28,10 @@ int main(int argc, char *  argv[])
 
 	double exponential_dist = qexp(1, vec[0]);
 
+	bool p_lt_3 = exponential_dist < 3;
+
 	std::cout << exponential_dist << std::endl;
+	std::cout << p_lt_3 << std::endl;
 
 #ifdef DEBUG
 	std::cout << "debug message" << std::endl;
