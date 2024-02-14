@@ -15,7 +15,7 @@ auto qexp(double lambda, double p ){
 }
 
 // see https://en.wikipedia.org/wiki/Logistic_function
-auto logistic(double L; double k, double x, double x0){
+auto logistic(double L, double k, double x, double x0){
 	return L / (1 + std::exp(-k*(x - x0)));
 }
 
