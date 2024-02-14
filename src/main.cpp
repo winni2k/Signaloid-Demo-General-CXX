@@ -33,10 +33,12 @@ int main(int argc, char *  argv[])
 
 	double exponential_dist = qexp(1, vec[0]);
 
-	double p_lt_3 = logistic(1, 1, exponential_dist, 3);
+	double p_lt_3 = logistic(1, 10, exponential_dist, 1);
+	double logistic_result = logistic(1, 10, vec[0], 0.5);
 
 	std::cout << exponential_dist << std::endl;
 	std::cout << p_lt_3 << std::endl;
+	std::cout << logistic_result << std::endl;
 
 #ifdef DEBUG
 	std::cout << "debug message" << std::endl;
