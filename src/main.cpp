@@ -1,6 +1,7 @@
 #include <iostream>
 #include <numeric>
 #include <vector>
+#include <cmath>
 #include <uxhw.h>
 
 int
@@ -8,7 +9,6 @@ main(int argc, char *  argv[])
 {
 	std::vector<double> vec {
 		UxHwDoubleUniformDist(0.0, 1.0),
-		UxHwDoubleUniformDist(1.0, 2.0),
 	};
 
 	std::cout << "Initial distributions:" << std::endl;
@@ -17,18 +17,22 @@ main(int argc, char *  argv[])
 		std::cout << dist << std::endl;
 	}
 
-	std::adjacent_difference(vec.begin(), vec.end(), vec.begin());
+	double exponential_dist = qexp(1, vec[0]);
 
-	std::cout << "Differences:" << std::endl;
-	for (const auto& diff : vec)
-	{
-		std::cout << diff << std::endl;
-	}
+	std::cout << exponential_dist << std::endl;
 
 #ifdef DEBUG
 	std::cout << "debug message" << std::endl;
 #endif
 
 	return 0;
+}
+
+auto qexp(double lambda, double p ){
+	assert(lambda > 0);
+	assert(p >= 0);
+	assert(p <= 0);
+
+	return - math::log(1-p) / lambda;
 }
 
